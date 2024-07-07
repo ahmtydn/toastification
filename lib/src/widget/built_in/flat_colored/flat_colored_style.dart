@@ -7,12 +7,23 @@ class FlatColoredStyle extends BuiltInStyle {
 
   @override
   MaterialColor primaryColor(BuildContext context) {
-    final color = switch (type) {
-      ToastificationType.info => infoColor,
-      ToastificationType.warning => warningColor,
-      ToastificationType.success => successColor,
-      ToastificationType.error => errorColor,
-    };
+    late final Color color;
+    switch (type) {
+      case ToastificationType.info:
+        color = infoColor;
+        break;
+      case ToastificationType.warning:
+        color = warningColor;
+        break;
+      case ToastificationType.success:
+        color = successColor;
+        break;
+      case ToastificationType.error:
+        color = errorColor;
+        break;
+      default:
+        throw ArgumentError('Unknown ToastificationType: $type');
+    }
 
     return ToastHelper.createMaterialColor(color);
   }

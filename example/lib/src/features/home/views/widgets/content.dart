@@ -35,14 +35,14 @@ class _ContentDesktop extends ConsumerWidget {
           child: Column(
             // three bordered containers
             children: [
-              const BorderedContainer(
+              BorderedContainer(
                 height: 48,
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 enabled: false,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text('Add Section'),
                     // soon to be icon
                     SoonWidget(),
@@ -154,7 +154,7 @@ class _ContentMobile extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Row(
+        Row(
           // three bordered containers
           children: [
             Expanded(
@@ -163,7 +163,7 @@ class _ContentMobile extends ConsumerWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 enabled: false,
                 child: Stack(
-                  children: [
+                  children: const [
                     Align(
                       alignment: AlignmentDirectional.centerStart,
                       child: Text(

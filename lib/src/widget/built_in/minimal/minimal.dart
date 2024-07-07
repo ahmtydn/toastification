@@ -95,7 +95,8 @@ class MinimalToastWidget extends StatelessWidget {
           constraints: const BoxConstraints(minHeight: 64),
           child: Material(
             color: Colors.transparent,
-            shape: LinearBorder.start(
+            shape: RoundedRectangleBorder(
+              borderRadius: defaultStyle.effectiveBorderRadius(borderRadius),
               side: BorderSide(
                 color: primary,
                 width: 3,

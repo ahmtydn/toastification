@@ -34,13 +34,27 @@ class _IconPickerState extends ConsumerState<IconPicker> {
     final iconColor = ref.watch(toastDetailControllerProvider).primaryColor;
     final icon = ref.watch(toastDetailControllerProvider).icon;
 
-    final defaultStyle = switch (style) {
-      ToastificationStyle.minimal => MinimalStyle(type),
-      ToastificationStyle.fillColored => FilledStyle(type),
-      ToastificationStyle.flatColored => FlatColoredStyle(type),
-      ToastificationStyle.flat => FlatStyle(type),
-      ToastificationStyle.simple => SimpleStyle(type),
-    };
+    late final defaultStyle;
+
+    switch (style) {
+      case ToastificationStyle.minimal:
+        defaultStyle = MinimalStyle(type);
+        break;
+      case ToastificationStyle.fillColored:
+        defaultStyle = FilledStyle(type);
+        break;
+      case ToastificationStyle.flatColored:
+        defaultStyle = FlatColoredStyle(type);
+        break;
+      case ToastificationStyle.flat:
+        defaultStyle = FlatStyle(type);
+        break;
+      case ToastificationStyle.simple:
+        defaultStyle = SimpleStyle(type);
+        break;
+      default:
+        throw ArgumentError('Unknown ToastificationStyle: $style');
+    }
 
     return Theme(
       data: Theme.of(context).copyWith(

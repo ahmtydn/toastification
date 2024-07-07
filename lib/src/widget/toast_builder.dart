@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 import 'dart:math' as math;
 
-final class ToastHolderWidget extends StatelessWidget {
+class ToastHolderWidget extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   const ToastHolderWidget({
     required this.item,

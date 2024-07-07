@@ -40,13 +40,20 @@ abstract class BuiltInStyle {
     ToastificationStyle style,
     ToastificationType type,
   ) {
-    return switch (style) {
-      ToastificationStyle.minimal => MinimalStyle(type),
-      ToastificationStyle.fillColored => FilledStyle(type),
-      ToastificationStyle.flatColored => FlatColoredStyle(type),
-      ToastificationStyle.flat => FlatStyle(type),
-      ToastificationStyle.simple => SimpleStyle(type),
-    };
+    switch (style) {
+      case ToastificationStyle.minimal:
+        return MinimalStyle(type);
+      case ToastificationStyle.fillColored:
+        return FilledStyle(type);
+      case ToastificationStyle.flatColored:
+        return FlatColoredStyle(type);
+      case ToastificationStyle.flat:
+        return FlatStyle(type);
+      case ToastificationStyle.simple:
+        return SimpleStyle(type);
+      default:
+        throw ArgumentError('Unknown ToastificationStyle: $style');
+    }
   }
 
   final ToastificationType type;
@@ -60,12 +67,18 @@ abstract class BuiltInStyle {
   Color foregroundColor(BuildContext context);
 
   IconData icon(BuildContext context) {
-    return switch (type) {
-      ToastificationType.success => Iconsax.tick_circle_copy,
-      ToastificationType.info => Iconsax.info_circle_copy,
-      ToastificationType.warning => Iconsax.danger_copy,
-      ToastificationType.error => Iconsax.close_circle_copy,
-    };
+    switch (type) {
+      case ToastificationType.success:
+        return Iconsax.tick_circle_copy;
+      case ToastificationType.info:
+        return Iconsax.info_circle_copy;
+      case ToastificationType.warning:
+        return Iconsax.danger_copy;
+      case ToastificationType.error:
+        return Iconsax.close_circle_copy;
+      default:
+        throw ArgumentError('Unknown ToastificationType: $type');
+    }
   }
 
   Color iconColor(BuildContext context);

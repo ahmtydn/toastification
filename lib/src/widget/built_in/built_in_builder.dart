@@ -234,9 +234,9 @@ class BuiltInToastBuilder extends StatelessWidget {
       childBuilder: (context, showWidget) {
         final showCloseButton =
             (closeButtonType != CloseButtonShowType.none) && showWidget;
-
-        return switch (style) {
-          ToastificationStyle.flat => FlatToastWidget(
+        switch (style) {
+          case ToastificationStyle.flat:
+            return FlatToastWidget(
               type: type,
               title: title,
               description: description,
@@ -256,8 +256,9 @@ class BuiltInToastBuilder extends StatelessWidget {
               progressIndicatorTheme: progressBarTheme,
               progressBarWidget: progressBarWidget,
               applyBlurEffect: applyBlurEffect ?? false,
-            ),
-          ToastificationStyle.flatColored => FlatColoredToastWidget(
+            );
+          case ToastificationStyle.flatColored:
+            return FlatColoredToastWidget(
               type: type,
               title: title,
               description: description,
@@ -277,8 +278,9 @@ class BuiltInToastBuilder extends StatelessWidget {
               showProgressBar: this.showProgressBar == true,
               progressIndicatorTheme: progressBarTheme,
               progressBarWidget: progressBarWidget,
-            ),
-          ToastificationStyle.fillColored => FilledToastWidget(
+            );
+          case ToastificationStyle.fillColored:
+            return FilledToastWidget(
               type: type,
               title: title,
               description: description,
@@ -298,8 +300,9 @@ class BuiltInToastBuilder extends StatelessWidget {
               showProgressBar: this.showProgressBar == true,
               progressIndicatorTheme: progressBarTheme,
               progressBarWidget: progressBarWidget,
-            ),
-          ToastificationStyle.minimal => MinimalToastWidget(
+            );
+          case ToastificationStyle.minimal:
+            return MinimalToastWidget(
               type: type,
               title: title,
               description: description,
@@ -319,8 +322,9 @@ class BuiltInToastBuilder extends StatelessWidget {
               applyBlurEffect: applyBlurEffect ?? false,
               progressIndicatorTheme: progressBarTheme,
               progressBarWidget: progressBarWidget,
-            ),
-          ToastificationStyle.simple => SimpleToastWidget(
+            );
+          case ToastificationStyle.simple:
+            return SimpleToastWidget(
               type: type,
               title: title,
               primaryColor: primaryColor,
@@ -333,8 +337,11 @@ class BuiltInToastBuilder extends StatelessWidget {
               boxShadow: boxShadow,
               direction: direction,
               applyBlurEffect: applyBlurEffect ?? false,
-            ),
-        };
+            );
+          default:
+            // Optionally, handle unexpected `style` values.
+            return Container(); // Or any other default widget
+        }
       },
     );
   }

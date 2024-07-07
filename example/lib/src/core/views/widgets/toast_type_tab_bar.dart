@@ -188,9 +188,9 @@ class CustomTabItem extends StatelessWidget {
     return BorderedContainer(
       height: height,
       enabled: false,
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Text(
             'Custom',
           ),

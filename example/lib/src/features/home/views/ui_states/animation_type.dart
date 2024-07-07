@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 
-sealed class AnimationType {
+class AnimationType {
   const AnimationType({
     required this.title,
     required this.name,
@@ -10,14 +10,20 @@ sealed class AnimationType {
   final String title;
   final String name;
 
-  String buildCode();
+  String buildCode() {
+    // TODO: implement buildCode
+    throw UnimplementedError();
+  }
 
   Widget builder(
     BuildContext context,
     Animation<double> animation,
     Alignment alignment,
     Widget child,
-  );
+  ) {
+    // TODO: implement builder
+    throw UnimplementedError();
+  }
 
   static const types = [
     BounceAnimationType(),

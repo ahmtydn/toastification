@@ -72,8 +72,10 @@ class _BottomNavigationViewState extends ConsumerState<BottomNavigationView>
         case AxisDirection.up:
           // Scroll view is reversed
           slideIn = metrics.extentAfter > threshold;
+          break;
         case AxisDirection.down:
           slideIn = metrics.extentBefore > threshold;
+          break;
         case AxisDirection.right:
         case AxisDirection.left:
           break;

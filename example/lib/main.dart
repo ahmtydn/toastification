@@ -88,10 +88,12 @@ class ToastificationApp extends ConsumerWidget {
   }
 
   Widget buildPage(String route) {
-    return switch (route) {
-      HomeScreen.route => const HomeScreen(),
-      _ => const SizedBox.shrink(),
-    };
+    switch (route) {
+      case HomeScreen.route:
+        return const HomeScreen();
+      default:
+        return const SizedBox.shrink();
+    }
   }
 }
 
