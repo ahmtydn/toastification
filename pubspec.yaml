@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   equatable: ^2.0.5
-  uuid: ^4.1.0
+  uuid: ^3.0.7
   pausable_timer: any
   collection: ^1.16.0
   iconsax_flutter: 
